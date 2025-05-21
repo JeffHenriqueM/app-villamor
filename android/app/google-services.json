@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "167429859183",
+    "project_id": "villamor-3645e",
+    "storage_bucket": "villamor-3645e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:167429859183:android:d6b953290dfe96c4212a9a",
+        "android_client_info": {
+          "package_name": "com.example.villamor"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0EfeCIKnzye595lmFA08vOlSF9ik2E2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
