@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:go_router/go_router.dart';
 
 class ConsultaCotasScreen extends StatefulWidget {
   const ConsultaCotasScreen({super.key});
@@ -31,16 +32,6 @@ class _ConsultaCotasScreenState extends State<ConsultaCotasScreen> {
         SnackBar(content: Text('Erro ao buscar: $e')),
       );
     }
-  }
-
-  void abrirCalendario(DocumentSnapshot cliente) {
-    // Aqui você pode navegar para a tela de calendário passando os dados da cota
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => CalendarioCotaScreen(cliente: cliente),
-      ),
-    );
   }
 
   @override
@@ -91,9 +82,9 @@ class _ConsultaCotasScreenState extends State<ConsultaCotasScreen> {
                               title: Text('Cota ${cliente['cota_numero']}'),
                               trailing: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.deepPurple,
+                                  backgroundColor: Colors.amber,
                                 ),
-                                onPressed: () => abrirCalendario(cliente),
+                                onPressed: () => context.go('/calendario', extra: cliente),
                                 child: const Text('Ver calendário'),
                               ),
                             ),
@@ -107,20 +98,6 @@ class _ConsultaCotasScreenState extends State<ConsultaCotasScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-// Exemplo de tela de destino (substituir pela sua real):
-class CalendarioCotaScreen extends StatelessWidget {
-  final DocumentSnapshot cliente;
-  const CalendarioCotaScreen({super.key, required this.cliente});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Calendário Cota ${cliente['cota_numero']}')),
-      body: Center(child: Text('Aqui vai o calendário da cota...')),
     );
   }
 }
